@@ -1,0 +1,103 @@
+<html>
+<head><title>Jolly Good | Options</title></head>
+<link rel="stylesheet" href="/css/style.css" type="text/css" media="screen" charset="utf-8">
+<script type="text/javascript">
+
+// Saves options to localStorage.
+function save_options() {
+  var input = document.getElementById("adjective");
+
+  localStorage["adjective"] = input.value;
+
+  // Update status to let user know options were saved.
+  var status = document.getElementById("status");
+
+  status.innerHTML = "" + input.value + "! <a href='http://facebook.com' target='_blank'>See it in action on Facebook</a>";
+  
+// setTimeout(function() {
+  //     status.innerHTML = "";
+  //   }, 750);
+}
+
+// Restores select box state to saved value from localStorage.
+function restore_options() {
+	
+  	var favorite = localStorage["adjective"];
+	
+	if (!favorite) {
+	    return;
+	}
+	
+  	var input = document.getElementById("adjective");
+  
+	input.value  	= favorite;
+}
+
+</script>
+
+<body onload="restore_options()">
+
+	<!-- white -->
+	<div id="white">
+	</div>
+	<!-- .white -->
+	<!-- container -->
+	<div class="container">
+		
+		<!-- inner -->
+		<div id="inner">
+		<!-- content -->
+		<div id="content">
+			<!-- text -->
+			<div id="text">
+				<h1 id="status">&nbsp;</h1>
+			</div>
+			<!-- .text -->
+			<div class="clearfix"></div>
+			
+			<!-- input -->
+			<div id="input">
+				
+				<label for="adjective">I want to say things on Facebook are </label>
+				<input type="text" name="adjective" value="" id="adjective">
+				<button onclick="save_options()">Save</button>
+			</div>
+			<!-- .input -->
+			
+			
+		
+			<div class="clearfix"></div>
+			
+			<!-- .credits -->
+			
+			<footer>
+			<!-- credits -->
+			
+			<nav id="credits">
+				<a href="http://chambersjudd.com" target="_blank" class="made-by">Made by Chambers Judd</a> 
+				<a href="http://twitter.com/chambersjudd" target="_blank">You should follow us on Twitter</a>
+			</nav>
+			<div class="clearfix"></div>
+			
+			<p class="please-dont-sue"><a href="https://github.com/chambersjudd/jollygood" target="_blank">Source is available on Github.</a><br />This isn't endorsed by Facebook in any way, it's just a bit of fun.</p>
+			<!-- .credits -->
+			</footer>
+				
+		
+		
+	
+		
+			
+		</div>
+		<!-- .content -->
+		
+		</div>
+		<!-- .inner -->
+			
+	</div>
+	<!-- .container -->
+	
+
+
+</body>
+</html>

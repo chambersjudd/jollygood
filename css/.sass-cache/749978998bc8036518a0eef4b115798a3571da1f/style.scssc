@@ -1,0 +1,745 @@
+3.1.15 (Brainy Betty)
+ec5b0c20b7d9772a4371c814f27bf1cf333b03b1
+o:Sass::Tree::RootNode
+:@template"¶*$yellow:#FBEE84;
+$text:#1b1b1b;
+$button:#ededed;
+$light:#9D9D9C;
+$border:1px solid $text;
+$dotted:1px dotted #bbb;
+$background:#D7DBE3;
+
+$twitter:#0091EE;
+
+$font-size:0.85em; /* 12/16*/
+$line: 1.6666666667em; /* 20/16 */
+
+$browser-border:#9D9D9C;
+$dotted-border:1px dotted #ccc;
+
+/*controls logo spacing*/
+$cellHeight: 40px;
+
+@mixin button-text() {
+	color: $text;
+	font-weight: normal;
+	
+	letter-spacing: .1em;
+/*	text-transform: uppercase;*/
+	text-decoration: none;
+/*	font-size: $font-size; */
+}
+
+@mixin transition($duration:0.25s) {
+	 -webkit-transition: all  $duration ease-out; 
+	     -moz-transition: all $duration ease-out; 
+	      -ms-transition: all $duration ease-out; 
+	       -o-transition: all $duration ease-out; 
+	          transition: all $duration ease-out;
+}
+
+@mixin gradient($from:#eee, $to:#ddd) {
+	background-color:$from;
+	background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to)); 
+	background-image: -webkit-linear-gradient(top, $from, $to); 
+	background-image:    -moz-linear-gradient(top, $from, $to); 
+	background-image:     -ms-linear-gradient(top, $from, $to); 
+	background-image:      -o-linear-gradient(top, $from, $to); 
+	background-image:         linear-gradient(top, $from, $to);
+	
+}
+
+
+/**
+ * Rounded corners
+ */
+@mixin corners($radius:7px, $type:all) {
+	
+	@if ($type == tl or $type == tr or $type == bl or $type == br) {
+		
+		@if $type == tl {
+	
+    		-moz-border-radius-topleft: 	$radius;
+				border-top-left-radius: 	$radius;
+
+		} @else if $type == tr {
+	
+    		-moz-border-radius-topright: 	$radius;
+				border-top-right-radius: 	$radius;
+
+		} @else if $type == bl {
+	
+    		-moz-border-radius-bottomleft: 	$radius;
+				border-bottom-left-radius: 	$radius;
+		
+		} @else if $type == br {
+
+    		-moz-border-radius-bottomright: $radius;
+				border-bottom-right-radius: $radius;
+
+		}
+
+	} @else {
+		
+	    -moz-border-radius: 	$radius; 
+		-webkit-border-radius: 	$radius; 
+		 border-radius: 		$radius;
+	}
+}
+
+/*
+ * HTML5 ‚ú∞ Boilerplate
+ *
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ *
+ * Detailed information about this CSS: h5bp.com/css
+ *
+ * ==|== normalize ==========================================================
+ */
+
+
+/* =============================================================================
+   HTML5 display definitions
+   ========================================================================== */
+
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
+audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
+audio:not([controls]) { display: none; }
+[hidden] { display: none; }
+
+
+/* =============================================================================
+   Base
+   ========================================================================== */
+
+/*
+ * 1. Correct text resizing oddly in IE6/7 when body font-size is set using em units
+ * 2. Prevent iOS text size adjust on device orientation change, without disabling user zoom: h5bp.com/g
+ */
+
+* { box-sizing: border-box; -moz-box-sizing: border-box; }
+
+html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+
+body { margin: 0; font-size: 1em; line-height: 1.4; }
+
+body, button, input, select, textarea { 
+	font-family: helvetica, arial, sans-serif; 
+	color: $text;
+}
+
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection declarations have to be separate
+ * Also: hot pink! (or customize the background color to match your design)
+ */
+
+::-moz-selection { background: $yellow; color: $text; text-shadow: none; }
+::selection { background: $yellow; color: $text; text-shadow: none; }
+
+
+/* =============================================================================
+   Links
+   ========================================================================== */
+
+
+
+/* =============================================================================
+   Typography
+   ========================================================================== */
+
+abbr[title] { border-bottom: 1px dotted; }
+
+b, strong { font-weight: bold; }
+
+blockquote { margin: 1em 40px; }
+
+dfn { font-style: italic; }
+
+hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
+
+ins { background: #ff9; color: #000; text-decoration: none; }
+
+mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
+
+/* Redeclare monospace font family: h5bp.com/j */
+pre, code, kbd, samp { font-family: monospace, serif; _font-family: 'courier new', monospace; font-size: 1em; }
+
+/* Improve readability of pre-formatted text in all browsers */
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
+
+q { quotes: none; }
+q:before, q:after { content: ""; content: none; }
+
+small { font-size: 85%; }
+
+/* Position subscript and superscript content without affecting line-height: h5bp.com/k */
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+
+/* =============================================================================
+   Lists
+   ========================================================================== */
+
+ul, ol { margin: 1em 0; padding: 0 0 0 40px; }
+dd { margin: 0 0 0 40px; }
+nav ul, nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0; }
+
+
+/* =============================================================================
+   Embedded content
+   ========================================================================== */
+
+/*
+ * 1. Improve image quality when scaled in IE7: h5bp.com/d
+ * 2. Remove the gap between images and borders on image containers: h5bp.com/e
+ */
+
+img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
+
+/*
+ * Correct overflow not hidden in IE9
+ */
+
+svg:not(:root) { overflow: hidden; }
+
+
+/* =============================================================================
+   Figures
+   ========================================================================== */
+
+figure { margin: 0; }
+
+
+/* =============================================================================
+   Forms
+   ========================================================================== */
+
+form { margin: 0; }
+fieldset { border: 0; margin: 0; padding: 0; }
+
+/* Indicate that 'label' will shift focus to the associated form element */
+label { cursor: pointer; }
+
+/*
+ * 1. Correct color not inheriting in IE6/7/8/9
+ * 2. Correct alignment displayed oddly in IE6/7
+ */
+
+legend { border: 0; *margin-left: -7px; padding: 0; white-space: normal; }
+
+/*
+ * 1. Correct font-size not inheriting in all browsers
+ * 2. Remove margins in FF3/4 S5 Chrome
+ * 3. Define consistent vertical alignment display in all browsers
+ */
+
+button, input, select, textarea { font-size: 100%; margin: 0; vertical-align: baseline; *vertical-align: middle; }
+
+/*
+ * 1. Define line-height as normal to match FF3/4 (set using !important in the UA stylesheet)
+ */
+
+button, input { line-height: normal; }
+
+/*
+ * 1. Display hand cursor for clickable form elements
+ * 2. Allow styling of clickable form elements in iOS
+ * 3. Correct inner spacing displayed oddly in IE7 (doesn't effect IE6)
+ */
+
+button, input[type="button"], input[type="reset"], input[type="submit"] { cursor: pointer; -webkit-appearance: button; *overflow: visible; }
+
+/*
+ * Consistent box sizing and appearance
+ */
+
+input[type="checkbox"], input[type="radio"] { box-sizing: border-box; padding: 0; *width: 13px; *height: 13px; }
+input[type="search"] { -webkit-appearance: textfield; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
+input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-search-cancel-button { -webkit-appearance: none; }
+
+/*
+ * Remove inner padding and border in FF3/4: h5bp.com/l
+ */
+
+button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
+
+/*
+ * 1. Remove default vertical scrollbar in IE6/7/8/9
+ * 2. Allow only vertical resizing
+ */
+
+textarea { overflow: auto; vertical-align: top; resize: vertical; }
+
+/* Colors for form validity */
+input:valid, textarea:valid {  }
+input:invalid, textarea:invalid { background-color: #f0dddd; }
+
+
+/* =============================================================================
+   Tables
+   ========================================================================== */
+
+table { border-collapse: collapse; border-spacing: 0; }
+td { vertical-align: top; }
+
+
+/* ==|== primary styles =====================================================
+   Author:
+   ========================================================================== */
+
+body {
+	background:$background;
+	color: #333;
+	font-size: 0.8em;
+}
+
+a,
+a:visited {
+	color: #333;
+	text-decoration: none;
+	border-bottom: 1px solid #999;
+	@include transition();
+	&:hover {
+		border-bottom-color:transparent;
+	}
+}
+
+div.container {
+	display: table;
+	width: 100%;
+	height: 100%;
+	table-layout: fixed;
+
+	div#inner {
+	
+		display: table-cell;
+		vertical-align: middle;
+	
+		div#content {
+			height: 235px;
+			width: 550px;
+			margin:-50px auto 0;
+			position: relative;
+			
+		}
+	}
+}
+
+div#white {
+	position: fixed;
+	width: 100%;
+	height: 50%;
+	background: #fff;
+	border-bottom: 1px solid #ccc;
+}
+		
+h1 {
+	text-align: center;
+	margin: 3em 0 2em;
+	padding: 0 1em;
+	font-size: 1.4em;
+	line-height: 1.6em;
+	color: #2B4287;
+	a, 
+	a:visited {
+		color: #2B4287;
+	}
+}		
+
+
+div#input {
+	margin: 0 0 $line * 3;
+	font-size: 1.4em;
+	line-height: 1.6em;
+	font-weight: bold;
+	input {
+		font-weight: bold;
+		width: 120px;
+	}
+	button {
+		border: 1px solid darken(#2B4287, 10%);
+		color: #fff;
+		text-shadow: darken(#2B4287, 40%) 0px -1px 0px;
+		text-align: center;
+
+		@include gradient(lighten(#2B4287, 2%), darken(#2B4287, 2%));
+		padding: 0.25em 1em;
+		margin: 0;
+		margin-top: -2px;
+		font-size: 0.9em;
+		text-decoration: none;
+		@include corners(3px);
+	}
+}
+
+div#input {
+	
+}
+
+p.contribute {
+	display: none;
+	margin: 1em 0 4em ;
+	font-size: 0.9em;
+	text-align: center;
+	color: #666;
+	a {
+		color: #666;
+		text-decoration: none;
+		border-bottom: 1px solid #999;
+		@include transition();
+		&:hover {
+			border-bottom-color:transparent;
+		}
+	}
+}
+
+footer {
+	font-size: 0.9em;
+	text-align: center;
+	color: #666;
+	
+	p {
+		display: block;
+		margin: 2em 0;
+	}
+	p.please-dont-sue {
+		color: #999;
+		margin-top: 4em;
+		line-height: 2em;
+		a {
+			color: #999;
+		}
+	}
+	
+	nav#credits {
+		margin: 0 0 4em 0;
+		width: 340px;
+		margin: 0 auto;
+		a,
+		div,
+		iframe {
+			float: left;
+			display: inline;
+			margin: 0 0.5em;
+		}
+		a.made-by {
+			margin-right: 1em;
+		}
+		div.fb-like {
+			margin-top: 0px;
+		}
+	}
+}
+
+/* Contain floats: h5bp.com/q */
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { *zoom: 1; }
+:@options{ :@has_childrenT:@children[qo:Sass::Tree::VariableNode:
+@name"yellow;@:@guarded0;	[ :
+@linei:
+@expro:Sass::Script::Color	;@:@attrs{	:redi˚:
+alphai:
+greeniÓ:	blueiÑ:@value0;io;
+;"	text;@;0;	[ ;i;o;	;@;{	;i ;i;i ;i ;0;io;
+;"button;@;0;	[ ;i;o;	;@;{	;iÌ;i;iÌ;iÌ;0;io;
+;"
+light;@;0;	[ ;i	;o;	;@;{	;iù;i;iù;iú;0;i	o;
+;"border;@;0;	[ ;i
+;o:Sass::Script::List	;@:@separator:
+space;[o:Sass::Script::Number:@denominator_units[ ;@:@numerator_units["px:@original"1px;i;i
+o:Sass::Script::String	;@:
+@type:identifier;"
+solid;i
+o:Sass::Script::Variable	;"	text;@:@underscored_name"	text;i
+;i
+o;
+;"dotted;@;0;	[ ;i;o;	;@;;;[o;;[ ;@;["px;"1px;i;io;	;@;;;"dotted;io;	;@;{	;iª;i;iª;iª;0;i;io;
+;"background;@;0;	[ ;i;o;	;@;{	;i◊;i;i€;i„;0;io;
+;"twitter;@;0;	[ ;i;o;	;@;{	;i ;i;ië;iÓ;0;io;
+;"font-size;@;0;	[ ;i;o;;[ ;@;["em;"0.85em;f0.84999999999999998 33;io:Sass::Tree::CommentNode;@:
+@loud0:@silent0;	[ ;["/* 12/16*/;io;
+;"	line;@;0;	[ ;i;o;;[ ;@;["em;"1.667em;f1.6666666667000001 ı;io;";@;#0;$0;	[ ;["/* 20/16 */;io;
+;"browser-border;@;0;	[ ;i;o;	;@;{	;iù;i;iù;iú;0;io;
+;"dotted-border;@;0;	[ ;i;o;	;@;;;[o;;[ ;@;["px;"1px;i;io;	;@;;;"dotted;io;	;@;{	;iÃ;i;iÃ;iÃ;0;i;io;";@;#0;$0;	[ ;["/*controls logo spacing*/;io;
+;"cellHeight;@;0;	[ ;i;o;;[ ;@;["px;"	40px;i-;io:Sass::Tree::MixinDefNode;"button-text;@;T:
+@args[ ;	[o:Sass::Tree::PropNode:
+@tabsi :@prop_syntax:new;["
+color;@;	[ ;o; 	;"	text;@;!"	text;i;io;';(i ;);*;["font-weight;@;	[ ;o;;@;;;"normal;io;';(i ;);*;["letter-spacing;@;	[ ;o;;@;;;"	.1em;io;";@;#0;$0;	[ ;["$/*	text-transform: uppercase;*/;io;';(i ;);*;["text-decoration;@;	[ ;o;;@;;;"	none;io;";@;#0;$0;	[ ;["!/*	font-size: $font-size; */;i ;io;%;"transition;@;T;&[[o; ;"duration;@;!"durationo;;[ ;@;["s;"
+0.25s;f	0.25;i#;	[
+o;';(i ;);*;["-webkit-transition;@;	[ ;o;	;@;;;[o;	;@;;;"all;i$o; 	;"duration;@;!"duration;i$o;	;@;;;"ease-out;i$;i$;i$o;';(i ;);*;["-moz-transition;@;	[ ;o;	;@;;;[o;	;@;;;"all;i%o; 	;"duration;@;!"duration;i%o;	;@;;;"ease-out;i%;i%;i%o;';(i ;);*;["-ms-transition;@;	[ ;o;	;@;;;[o;	;@;;;"all;i&o; 	;"duration;@;!"duration;i&o;	;@;;;"ease-out;i&;i&;i&o;';(i ;);*;["-o-transition;@;	[ ;o;	;@;;;[o;	;@;;;"all;i'o; 	;"duration;@;!"duration;i'o;	;@;;;"ease-out;i';i';i'o;';(i ;);*;["transition;@;	[ ;o;	;@;;;[o;	;@;;;"all;i(o; 	;"duration;@;!"duration;i(o;	;@;;;"ease-out;i(;i(;i(;i#o;%;"gradient;@;T;&[[o; ;"	from;@;!"	fromo;	;@;{	;iÓ;i;iÓ;iÓ;0;i+[o; ;"to;@;!"too;	;@;{	;i›;i;i›;i›;0;i+;	[o;';(i ;);*;["background-color;@;	[ ;o; 	;"	from;@;!"	from;i,;i,o;';(i ;);*;["background-image;@;	[ ;o:Sass::Script::Funcall
+:@keywords{ ;"-webkit-gradient;@;&[
+o;	;@;;;"linear;i-o;	;@;;;[o;	;@;;;"	left;i-o;	;@;;;"top;i-;i-o;	;@;;;[o;	;@;;;"	left;i-o;	;@;;;"bottom;i-;i-o;+
+;,{ ;"	from;@;&[o; 	;"	from;@;!"	from;i-;i-o;+
+;,{ ;"to;@;&[o; 	;"to;@;!"to;i-;i-;i-;i-o;';(i ;);*;["background-image;@;	[ ;o;+
+;,{ ;"-webkit-linear-gradient;@;&[o;	;@;;;"top;i.o; 	;"	from;@;!"	from;i.o; 	;"to;@;!"to;i.;i.;i.o;';(i ;);*;["background-image;@;	[ ;o;+
+;,{ ;"-moz-linear-gradient;@;&[o;	;@;;;"top;i/o; 	;"	from;@;!"	from;i/o; 	;"to;@;!"to;i/;i/;i/o;';(i ;);*;["background-image;@;	[ ;o;+
+;,{ ;"-ms-linear-gradient;@;&[o;	;@;;;"top;i0o; 	;"	from;@;!"	from;i0o; 	;"to;@;!"to;i0;i0;i0o;';(i ;);*;["background-image;@;	[ ;o;+
+;,{ ;"-o-linear-gradient;@;&[o;	;@;;;"top;i1o; 	;"	from;@;!"	from;i1o; 	;"to;@;!"to;i1;i1;i1o;';(i ;);*;["background-image;@;	[ ;o;+
+;,{ ;"linear-gradient;@;&[o;	;@;;;"top;i2o; 	;"	from;@;!"	from;i2o; 	;"to;@;!"to;i2;i2;i2;i+o;";@;#0;$0;	[ ;["/**
+ * Rounded corners
+ */;i7o;%;"corners;@;T;&[[o; ;"radius;@;!"radiuso;;[ ;@;["px;"7px;i;i:[o; ;"	type;@;!"	typeo;	;@;;;"all;i:;	[u:Sass::Tree::IfNode·
+[o:Sass::Script::Operation
+:@options{ :@operand2o; 
+;@;o:Sass::Script::String	;@:
+@type:identifier:@value"br:
+@linei<:@operator:eq:@operand1o:Sass::Script::Variable	:
+@name"	type;@:@underscored_name"	type;i<;i<;:or;o; 
+;@;o; 
+;@;o;	;@;	;
+;"bl;i<;;;o;	;"	type;@;"	type;i<;i<;;;o; 
+;@;o; 
+;@;o;	;@;	;
+;"tr;i<;;;o;	;"	type;@;"	type;i<;i<;;;o; 
+;@;o;	;@;	;
+;"tl;i<;;;o;	;"	type;@;"	type;i<;i<;i<;i<;i<u:Sass::Tree::IfNodel[00[o:Sass::Tree::PropNode:
+@tabsi :@prop_syntax:new:
+@name["-moz-border-radius:@options{ :@children[ :@valueo:Sass::Script::Variable	;	"radius;
+@
+:@underscored_name"radius:
+@lineiV;iVo; ;i ;;;	["-webkit-border-radius;
+@
+;[ ;o;	;	"radius;
+@
+;"radius;iW;iWo; ;i ;;;	["border-radius;
+@
+;[ ;o;	;	"radius;
+@
+;"radius;iX;iX[u;e[o:Sass::Script::Operation
+:@options{ :@operand2o:Sass::Script::String	;@:
+@type:identifier:@value"tl:
+@linei>:@operator:eq:@operand1o:Sass::Script::Variable	:
+@name"	type;@:@underscored_name"	type;i>;i>u:Sass::Tree::IfNodeä[o:Sass::Script::Operation
+:@options{ :@operand2o:Sass::Script::String	;@:
+@type:identifier:@value"tr:
+@lineiC:@operator:eq:@operand1o:Sass::Script::Variable	:
+@name"	type;@:@underscored_name"	type;iC;iCu:Sass::Tree::IfNode≠[o:Sass::Script::Operation
+:@options{ :@operand2o:Sass::Script::String	;@:
+@type:identifier:@value"bl:
+@lineiH:@operator:eq:@operand1o:Sass::Script::Variable	:
+@name"	type;@:@underscored_name"	type;iH;iHu:Sass::Tree::IfNodeÃ[o:Sass::Script::Operation
+:@options{ :@operand2o:Sass::Script::String	;@:
+@type:identifier:@value"br:
+@lineiM:@operator:eq:@operand1o:Sass::Script::Variable	:
+@name"	type;@:@underscored_name"	type;iM;iM0[o:Sass::Tree::PropNode:
+@tabsi :@prop_syntax:new;["#-moz-border-radius-bottomright;@:@children[ ;o;	;"radius;@;"radius;iO;iOo;;i ;;;["border-bottom-right-radius;@;[ ;o;	;"radius;@;"radius;iP;iP[o:Sass::Tree::PropNode:
+@tabsi :@prop_syntax:new;[""-moz-border-radius-bottomleft;@:@children[ ;o;	;"radius;@;"radius;iJ;iJo;;i ;;;["border-bottom-left-radius;@;[ ;o;	;"radius;@;"radius;iK;iK[o:Sass::Tree::PropNode:
+@tabsi :@prop_syntax:new;[" -moz-border-radius-topright;@:@children[ ;o;	;"radius;@;"radius;iE;iEo;;i ;;;["border-top-right-radius;@;[ ;o;	;"radius;@;"radius;iF;iF[o:Sass::Tree::PropNode:
+@tabsi :@prop_syntax:new;["-moz-border-radius-topleft;@:@children[ ;o;	;"radius;@;"radius;i@;i@o;;i ;;;["border-top-left-radius;@;[ ;o;	;"radius;@;"radius;iA;iA;i:o;";@;#0;$0;	[ ;["r/*
+ * HTML5 ‚ú∞ Boilerplate
+ *
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ *
+ * Detailed information about this CSS: h5bp.com/css
+ *
+ * ==|== normalize ==========================================================
+ */;i\o;";@;#0;$0;	[ ;["æ/* =============================================================================
+   HTML5 display definitions
+   ========================================================================== */;iio:Sass::Tree::RuleNode;(i ;@;T:
+@rule["Varticle, aside, details, figcaption, figure, footer, header, hgroup, nav, section:@parsed_ruleso:"Sass::Selector::CommaSequence:@members[o:Sass::Selector::Sequence;2[o:#Sass::Selector::SimpleSequence;2[o:Sass::Selector::Element	;["article:@namespace0:@filename" ;im;7@£;imo;3;2[o;4;2[o;5	;["
+aside;60;7@£;im;7@£;imo;3;2[o;4;2[o;5	;["details;60;7@£;im;7@£;imo;3;2[o;4;2[o;5	;["figcaption;60;7@£;im;7@£;imo;3;2[o;4;2[o;5	;["figure;60;7@£;im;7@£;imo;3;2[o;4;2[o;5	;["footer;60;7@£;im;7@£;imo;3;2[o;4;2[o;5	;["header;60;7@£;im;7@£;imo;3;2[o;4;2[o;5	;["hgroup;60;7@£;im;7@£;imo;3;2[o;4;2[o;5	;["nav;60;7@£;im;7@£;imo;3;2[o;4;2[o;5	;["section;60;7@£;im;7@£;im;7@£;im;	[o;';(i ;);*;["display;@;	[ ;o;;@;;;"
+block;im;imo;.;(i ;@;T;/["audio, canvas, video;0o;1;2[o;3;2[o;4;2[o;5	;["
+audio;60;7" ;in;7@ˆ;ino;3;2[o;4;2[o;5	;["canvas;60;7@ˆ;in;7@ˆ;ino;3;2[o;4;2[o;5	;["
+video;60;7@ˆ;in;7@ˆ;in;7@ˆ;in;	[o;';(i ;);*;["display;@;	[ ;o;;@;;;"inline-block;ino;';(i ;);*;["*display;@;	[ ;o;;@;;;"inline;ino;';(i ;);*;["
+*zoom;@;	[ ;o;;@;;;"1;in;ino;.;(i ;@;T;/["audio:not([controls]);0o;1;2[o;3;2[o;4;2[o;5	;["
+audio;60;7" ;ioo:(Sass::Selector::SelectorPseudoClass	;"not:@selectoro;1;2[o;3;2[o;4;2[o:Sass::Selector::Attribute	;["controls;60:@operator0;0;7@$;io;7@$;io;7@$;io;	[o;';(i ;);*;["display;@;	[ ;o;;@;;;"	none;io;ioo;.;(i ;@;T;/["[hidden];0o;1;2[o;3;2[o;4;2[o;:;["hidden;60;;0;7" ;0;ip;7@C;ip;7@C;ip;	[o;';(i ;);*;["display;@;	[ ;o;;@;;;"	none;ip;ipo;";@;#0;$0;	[ ;["©/* =============================================================================
+   Base
+   ========================================================================== */;iso;";@;#0;$0;	[ ;["ƒ/*
+ * 1. Correct text resizing oddly in IE6/7 when body font-size is set using em units
+ * 2. Prevent iOS text size adjust on device orientation change, without disabling user zoom: h5bp.com/g
+ */;iwo;.;(i ;@;T;/["*;0o;1;2[o;3;2[o;4;2[o:Sass::Selector::Universal;60;7" ;i|;7@];i|;7@];i|;	[o;';(i ;);*;["box-sizing;@;	[ ;o;;@;;;"border-box;i|o;';(i ;);*;["-moz-box-sizing;@;	[ ;o;;@;;;"border-box;i|;i|o;.;(i ;@;T;/["	html;0o;1;2[o;3;2[o;4;2[o;5	;["	html;60;7" ;i~;7@w;i~;7@w;i~;	[o;';(i ;);*;["font-size;@;	[ ;o;;@;;;"	100%;i~o;';(i ;);*;["-webkit-text-size-adjust;@;	[ ;o;;@;;;"	100%;i~o;';(i ;);*;["-ms-text-size-adjust;@;	[ ;o;;@;;;"	100%;i~;i~o;.;(i ;@;T;/["	body;0o;1;2[o;3;2[o;4;2[o;5	;["	body;60;7" ;i{;7@ó;i{;7@ó;i{;	[o;';(i ;);*;["margin;@;	[ ;o;;@;;;"0;i{o;';(i ;);*;["font-size;@;	[ ;o;;@;;;"1em;i{o;';(i ;);*;["line-height;@;	[ ;o;;@;;;"1.4;i{;i{o;.;(i ;@;T;/["*body, button, input, select, textarea;0o;1;2[
+o;3;2[o;4;2[o;5	;["	body;60;7" ;i};7@∑;i}o;3;2[o;4;2[o;5	;["button;60;7@∑;i};7@∑;i}o;3;2[o;4;2[o;5	;["
+input;60;7@∑;i};7@∑;i}o;3;2[o;4;2[o;5	;["select;60;7@∑;i};7@∑;i}o;3;2[o;4;2[o;5	;["textarea;60;7@∑;i};7@∑;i};7@∑;i};	[o;';(i ;);*;["font-family;@;	[ ;o;;@;;;"!helvetica, arial, sans-serif;i~o;';(i ;);*;["
+color;@;	[ ;o; 	;"	text;@;!"	text;i;i;i}o;";@;#0;$0;	[ ;["ø/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection declarations have to be separate
+ * Also: hot pink! (or customize the background color to match your design)
+ */;iÇo;.;(i ;@;T;/["::-moz-selection;0o;1;2[o;3;2[o;4;2[o:Sass::Selector::Pseudo
+;["-moz-selection:	@arg0;:element;7" ;ià;7@Ú;ià;7@Ú;ià;	[o;';(i ;);*;["background;@;	[ ;o; 	;"yellow;@;!"yellow;ià;iào;';(i ;);*;["
+color;@;	[ ;o; 	;"	text;@;!"	text;ià;iào;';(i ;);*;["text-shadow;@;	[ ;o;;@;;;"	none;ià;iào;.;(i ;@;T;/["::selection;0o;1;2[o;3;2[o;4;2[o;=
+;["selection;>0;;?;7" ;iâ;7@;iâ;7@;iâ;	[o;';(i ;);*;["background;@;	[ ;o; 	;"yellow;@;!"yellow;iâ;iâo;';(i ;);*;["
+color;@;	[ ;o; 	;"	text;@;!"	text;iâ;iâo;';(i ;);*;["text-shadow;@;	[ ;o;;@;;;"	none;iâ;iâo;";@;#0;$0;	[ ;["™/* =============================================================================
+   Links
+   ========================================================================== */;iåo;";@;#0;$0;	[ ;["Ø/* =============================================================================
+   Typography
+   ========================================================================== */;iío;.;(i ;@;T;/["abbr[title];0o;1;2[o;3;2[o;4;2[o;5	;["	abbr;60;7" ;iño;:;["
+title;60;;0;7@>;0;iñ;7@>;iñ;7@>;iñ;	[o;';(i ;);*;["border-bottom;@;	[ ;o;;@;;;"1px dotted;iñ;iño;.;(i ;@;T;/["b, strong;0o;1;2[o;3;2[o;4;2[o;5	;["b;60;7" ;iò;7@U;iòo;3;2[o;4;2[o;5	;["strong;60;7@U;iò;7@U;iò;7@U;iò;	[o;';(i ;);*;["font-weight;@;	[ ;o;;@;;;"	bold;iò;iòo;.;(i ;@;T;/["blockquote;0o;1;2[o;3;2[o;4;2[o;5	;["blockquote;60;7" ;iö;7@p;iö;7@p;iö;	[o;';(i ;);*;["margin;@;	[ ;o;;@;;;"1em 40px;iö;iöo;.;(i ;@;T;/["dfn;0o;1;2[o;3;2[o;4;2[o;5	;["dfn;60;7" ;iú;7@Ñ;iú;7@Ñ;iú;	[o;';(i ;);*;["font-style;@;	[ ;o;;@;;;"italic;iú;iúo;.;(i ;@;T;/["hr;0o;1;2[o;3;2[o;4;2[o;5	;["hr;60;7" ;iû;7@ò;iû;7@ò;iû;	[o;';(i ;);*;["display;@;	[ ;o;;@;;;"
+block;iûo;';(i ;);*;["height;@;	[ ;o;;@;;;"1px;iûo;';(i ;);*;["border;@;	[ ;o;;@;;;"0;iûo;';(i ;);*;["border-top;@;	[ ;o;;@;;;"1px solid #ccc;iûo;';(i ;);*;["margin;@;	[ ;o;;@;;;"
+1em 0;iûo;';(i ;);*;["padding;@;	[ ;o;;@;;;"0;iû;iûo;.;(i ;@;T;/["ins;0o;1;2[o;3;2[o;4;2[o;5	;["ins;60;7" ;i†;7@ ;i†;7@ ;i†;	[o;';(i ;);*;["background;@;	[ ;o;;@;;;"	#ff9;i†o;';(i ;);*;["
+color;@;	[ ;o;;@;;;"	#000;i†o;';(i ;);*;["text-decoration;@;	[ ;o;;@;;;"	none;i†;i†o;.;(i ;@;T;/["	mark;0o;1;2[o;3;2[o;4;2[o;5	;["	mark;60;7" ;i¢;7@Í;i¢;7@Í;i¢;	[	o;';(i ;);*;["background;@;	[ ;o;;@;;;"	#ff0;i¢o;';(i ;);*;["
+color;@;	[ ;o;;@;;;"	#000;i¢o;';(i ;);*;["font-style;@;	[ ;o;;@;;;"italic;i¢o;';(i ;);*;["font-weight;@;	[ ;o;;@;;;"	bold;i¢;i¢o;";@;#0;$0;	[ ;["6/* Redeclare monospace font family: h5bp.com/j */;i§o;.;(i ;@;T;/["pre, code, kbd, samp;0o;1;2[	o;3;2[o;4;2[o;5	;["pre;60;7" ;i•;7@;i•o;3;2[o;4;2[o;5	;["	code;60;7@;i•;7@;i•o;3;2[o;4;2[o;5	;["kbd;60;7@;i•;7@;i•o;3;2[o;4;2[o;5	;["	samp;60;7@;i•;7@;i•;7@;i•;	[o;';(i ;);*;["font-family;@;	[ ;o;;@;;;"monospace, serif;i•o;';(i ;);*;["_font-family;@;	[ ;o;;@;;;"'courier new', monospace;i•o;';(i ;);*;["font-size;@;	[ ;o;;@;;;"1em;i•;i•o;";@;#0;$0;	[ ;["D/* Improve readability of pre-formatted text in all browsers */;ißo;.;(i ;@;T;/["pre;0o;1;2[o;3;2[o;4;2[o;5	;["pre;60;7" ;i®;7@M;i®;7@M;i®;	[o;';(i ;);*;["white-space;@;	[ ;o;;@;;;"pre;i®o;';(i ;);*;["white-space;@;	[ ;o;;@;;;"pre-wrap;i®o;';(i ;);*;["word-wrap;@;	[ ;o;;@;;;"break-word;i®;i®o;.;(i ;@;T;/["q;0o;1;2[o;3;2[o;4;2[o;5	;["q;60;7" ;i™;7@m;i™;7@m;i™;	[o;';(i ;);*;["quotes;@;	[ ;o;;@;;;"	none;i™;i™o;.;(i ;@;T;/["q:before, q:after;0o;1;2[o;3;2[o;4;2[o;5	;["q;60;7" ;i´o;=
+;["before;>0;:
+class;7@Å;i´;7@Å;i´o;3;2[o;4;2[o;5	;["q;60;7@Å;i´o;=
+;["
+after;>0;;@;7@Å;i´;7@Å;i´;7@Å;i´;	[o;';(i ;);*;["content;@;	[ ;o;;@;;;""";i´o;';(i ;);*;["content;@;	[ ;o;;@;;;"	none;i´;i´o;.;(i ;@;T;/["
+small;0o;1;2[o;3;2[o;4;2[o;5	;["
+small;60;7" ;i≠;7@®;i≠;7@®;i≠;	[o;';(i ;);*;["font-size;@;	[ ;o;;@;;;"85%;i≠;i≠o;";@;#0;$0;	[ ;["_/* Position subscript and superscript content without affecting line-height: h5bp.com/k */;iØo;.;(i ;@;T;/["sub, sup;0o;1;2[o;3;2[o;4;2[o;5	;["sub;60;7" ;i∞;7@¿;i∞o;3;2[o;4;2[o;5	;["sup;60;7@¿;i∞;7@¿;i∞;7@¿;i∞;	[	o;';(i ;);*;["font-size;@;	[ ;o;;@;;;"75%;i∞o;';(i ;);*;["line-height;@;	[ ;o;;@;;;"0;i∞o;';(i ;);*;["position;@;	[ ;o;;@;;;"relative;i∞o;';(i ;);*;["vertical-align;@;	[ ;o;;@;;;"baseline;i∞;i∞o;.;(i ;@;T;/["sup;0o;1;2[o;3;2[o;4;2[o;5	;["sup;60;7" ;i±;7@Ì;i±;7@Ì;i±;	[o;';(i ;);*;["top;@;	[ ;o;;[ ;@;["em;"-0.5em;f	-0.5;i±;i±;i±o;.;(i ;@;T;/["sub;0o;1;2[o;3;2[o;4;2[o;5	;["sub;60;7" ;i≤;7@;i≤;7@;i≤;	[o;';(i ;);*;["bottom;@;	[ ;o;;[ ;@;["em;"-0.25em;f
+-0.25;i≤;i≤;i≤o;";@;#0;$0;	[ ;["™/* =============================================================================
+   Lists
+   ========================================================================== */;iµo;.;(i ;@;T;/["ul, ol;0o;1;2[o;3;2[o;4;2[o;5	;["ul;60;7" ;iπ;7@!;iπo;3;2[o;4;2[o;5	;["ol;60;7@!;iπ;7@!;iπ;7@!;iπ;	[o;';(i ;);*;["margin;@;	[ ;o;;@;;;"
+1em 0;iπo;';(i ;);*;["padding;@;	[ ;o;;@;;;"0 0 0 40px;iπ;iπo;.;(i ;@;T;/["dd;0o;1;2[o;3;2[o;4;2[o;5	;["dd;60;7" ;i∫;7@B;i∫;7@B;i∫;	[o;';(i ;);*;["margin;@;	[ ;o;;@;;;"0 0 0 40px;i∫;i∫o;.;(i ;@;T;/["nav ul, nav ol;0o;1;2[o;3;2[o;4;2[o;5	;["nav;60;7" ;iª;7@V;iªo;4;2[o;5	;["ul;60;7@V;iª;7@V;iªo;3;2[o;4;2[o;5	;["nav;60;7@V;iª;7@V;iªo;4;2[o;5	;["ol;60;7@V;iª;7@V;iª;7@V;iª;	[	o;';(i ;);*;["list-style;@;	[ ;o;;@;;;"	none;iªo;';(i ;);*;["list-style-image;@;	[ ;o;;@;;;"	none;iªo;';(i ;);*;["margin;@;	[ ;o;;@;;;"0;iªo;';(i ;);*;["padding;@;	[ ;o;;@;;;"0;iª;iªo;";@;#0;$0;	[ ;["µ/* =============================================================================
+   Embedded content
+   ========================================================================== */;iæo;";@;#0;$0;	[ ;["ë/*
+ * 1. Improve image quality when scaled in IE7: h5bp.com/d
+ * 2. Remove the gap between images and borders on image containers: h5bp.com/e
+ */;i¬o;.;(i ;@;T;/["img;0o;1;2[o;3;2[o;4;2[o;5	;["img;60;7" ;i«;7@ï;i«;7@ï;i«;	[o;';(i ;);*;["border;@;	[ ;o;;@;;;"0;i«o;';(i ;);*;["-ms-interpolation-mode;@;	[ ;o;;@;;;"bicubic;i«o;';(i ;);*;["vertical-align;@;	[ ;o;;@;;;"middle;i«;i«o;";@;#0;$0;	[ ;["1/*
+ * Correct overflow not hidden in IE9
+ */;i…o;.;(i ;@;T;/["svg:not(:root);0o;1;2[o;3;2[o;4;2[o;5	;["svg;60;7" ;iÕo;8	;"not;9o;1;2[o;3;2[o;4;2[o;=;["	root;>0;;@;7@π;iÕ;7@π;iÕ;7@π;iÕ;	[o;';(i ;);*;["overflow;@;	[ ;o;;@;;;"hidden;iÕ;iÕo;";@;#0;$0;	[ ;["¨/* =============================================================================
+   Figures
+   ========================================================================== */;i–o;.;(i ;@;T;/["figure;0o;1;2[o;3;2[o;4;2[o;5	;["figure;60;7" ;i‘;7@‹;i‘;7@‹;i‘;	[o;';(i ;);*;["margin;@;	[ ;o;;@;;;"0;i‘;i‘o;";@;#0;$0;	[ ;["™/* =============================================================================
+   Forms
+   ========================================================================== */;i◊o;.;(i ;@;T;/["	form;0o;1;2[o;3;2[o;4;2[o;5	;["	form;60;7" ;i€;7@Ù;i€;7@Ù;i€;	[o;';(i ;);*;["margin;@;	[ ;o;;@;;;"0;i€;i€o;.;(i ;@;T;/["fieldset;0o;1;2[o;3;2[o;4;2[o;5	;["fieldset;60;7" ;i‹;7@;i‹;7@;i‹;	[o;';(i ;);*;["border;@;	[ ;o;;@;;;"0;i‹o;';(i ;);*;["margin;@;	[ ;o;;@;;;"0;i‹o;';(i ;);*;["padding;@;	[ ;o;;@;;;"0;i‹;i‹o;";@;#0;$0;	[ ;["P/* Indicate that 'label' will shift focus to the associated form element */;iﬁo;.;(i ;@;T;/["
+label;0o;1;2[o;3;2[o;4;2[o;5	;["
+label;60;7" ;iﬂ;7@,;iﬂ;7@,;iﬂ;	[o;';(i ;);*;["cursor;@;	[ ;o;;@;;;"pointer;iﬂ;iﬂo;";@;#0;$0;	[ ;["l/*
+ * 1. Correct color not inheriting in IE6/7/8/9
+ * 2. Correct alignment displayed oddly in IE6/7
+ */;i·o;.;(i ;@;T;/["legend;0o;1;2[o;3;2[o;4;2[o;5	;["legend;60;7" ;iÊ;7@D;iÊ;7@D;iÊ;	[	o;';(i ;);*;["border;@;	[ ;o;;@;;;"0;iÊo;';(i ;);*;["*margin-left;@;	[ ;o;;[ ;@;["px;"	-7px;iÙ;iÊ;iÊo;';(i ;);*;["padding;@;	[ ;o;;@;;;"0;iÊo;';(i ;);*;["white-space;@;	[ ;o;;@;;;"normal;iÊ;iÊo;";@;#0;$0;	[ ;["®/*
+ * 1. Correct font-size not inheriting in all browsers
+ * 2. Remove margins in FF3/4 S5 Chrome
+ * 3. Define consistent vertical alignment display in all browsers
+ */;iËo;.;(i ;@;T;/["$button, input, select, textarea;0o;1;2[	o;3;2[o;4;2[o;5	;["button;60;7" ;iÓ;7@q;iÓo;3;2[o;4;2[o;5	;["
+input;60;7@q;iÓ;7@q;iÓo;3;2[o;4;2[o;5	;["select;60;7@q;iÓ;7@q;iÓo;3;2[o;4;2[o;5	;["textarea;60;7@q;iÓ;7@q;iÓ;7@q;iÓ;	[	o;';(i ;);*;["font-size;@;	[ ;o;;@;;;"	100%;iÓo;';(i ;);*;["margin;@;	[ ;o;;@;;;"0;iÓo;';(i ;);*;["vertical-align;@;	[ ;o;;@;;;"baseline;iÓo;';(i ;);*;["*vertical-align;@;	[ ;o;;@;;;"middle;iÓ;iÓo;";@;#0;$0;	[ ;["i/*
+ * 1. Define line-height as normal to match FF3/4 (set using !important in the UA stylesheet)
+ */;io;.;(i ;@;T;/["button, input;0o;1;2[o;3;2[o;4;2[o;5	;["button;60;7" ;iÙ;7@∞;iÙo;3;2[o;4;2[o;5	;["
+input;60;7@∞;iÙ;7@∞;iÙ;7@∞;iÙ;	[o;';(i ;);*;["line-height;@;	[ ;o;;@;;;"normal;iÙ;iÙo;";@;#0;$0;	[ ;["∫/*
+ * 1. Display hand cursor for clickable form elements
+ * 2. Allow styling of clickable form elements in iOS
+ * 3. Correct inner spacing displayed oddly in IE7 (doesn't effect IE6)
+ */;iˆo;.;(i ;@;T;/["Lbutton, input[type="button"], input[type="reset"], input[type="submit"];0o;1;2[	o;3;2[o;4;2[o;5	;["button;60;7" ;i¸;7@œ;i¸o;3;2[o;4;2[o;5	;["
+input;60;7@œ;i¸o;:;["	type;60;;"=;7@œ;[""button";i¸;7@œ;i¸o;3;2[o;4;2[o;5	;["
+input;60;7@œ;i¸o;:;["	type;60;;"=;7@œ;[""reset";i¸;7@œ;i¸o;3;2[o;4;2[o;5	;["
+input;60;7@œ;i¸o;:;["	type;60;;"=;7@œ;[""submit";i¸;7@œ;i¸;7@œ;i¸;	[o;';(i ;);*;["cursor;@;	[ ;o;;@;;;"pointer;i¸o;';(i ;);*;["-webkit-appearance;@;	[ ;o;;@;;;"button;i¸o;';(i ;);*;["*overflow;@;	[ ;o;;@;;;"visible;i¸;i¸o;";@;#0;$0;	[ ;["3/*
+ * Consistent box sizing and appearance
+ */;i˛o;.;(i ;@;T;/["0input[type="checkbox"], input[type="radio"];0o;1;2[o;3;2[o;4;2[o;5	;["
+input;60;7" ;io;:;["	type;60;;"=;7@;[""checkbox";i;7@;io;3;2[o;4;2[o;5	;["
+input;60;7@;io;:;["	type;60;;"=;7@;[""radio";i;7@;i;7@;i;	[	o;';(i ;);*;["box-sizing;@;	[ ;o;;@;;;"border-box;io;';(i ;);*;["padding;@;	[ ;o;;@;;;"0;io;';(i ;);*;["*width;@;	[ ;o;;@;;;"	13px;io;';(i ;);*;["*height;@;	[ ;o;;@;;;"	13px;i;io;.;(i ;@;T;/["input[type="search"];0o;1;2[o;3;2[o;4;2[o;5	;["
+input;60;7" ;io;:;["	type;60;;"=;7@S;[""search";i;7@S;i;7@S;i;	[	o;';(i ;);*;["-webkit-appearance;@;	[ ;o;;@;;;"textfield;io;';(i ;);*;["-moz-box-sizing;@;	[ ;o;;@;;;"content-box;io;';(i ;);*;["-webkit-box-sizing;@;	[ ;o;;@;;;"content-box;io;';(i ;);*;["box-sizing;@;	[ ;o;;@;;;"content-box;i;io;.;(i ;@;T;/["hinput[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-search-cancel-button;0o;1;2[o;3;2[o;4;2[o;5	;["
+input;60;7" ;io;:;["	type;60;;"=;7@;[""search";io;=
+;["-webkit-search-decoration;>0;;?;7@;i;7@;io;3;2[o;4;2[o;5	;["
+input;60;7@;io;:;["	type;60;;"=;7@;[""search";io;=
+;["!-webkit-search-cancel-button;>0;;?;7@;i;7@;i;7@;i;	[o;';(i ;);*;["-webkit-appearance;@;	[ ;o;;@;;;"	none;i;io;";@;#0;$0;	[ ;["C/*
+ * Remove inner padding and border in FF3/4: h5bp.com/l
+ */;io;.;(i ;@;T;/["6button::-moz-focus-inner, input::-moz-focus-inner;0o;1;2[o;3;2[o;4;2[o;5	;["button;60;7" ;i
+o;=
+;["-moz-focus-inner;>0;;?;7@∞;i
+;7@∞;i
+o;3;2[o;4;2[o;5	;["
+input;60;7@∞;i
+o;=
+;["-moz-focus-inner;>0;;?;7@∞;i
+;7@∞;i
+;7@∞;i
+;	[o;';(i ;);*;["border;@;	[ ;o;;@;;;"0;i
+o;';(i ;);*;["padding;@;	[ ;o;;@;;;"0;i
+;i
+o;";@;#0;$0;	[ ;["c/*
+ * 1. Remove default vertical scrollbar in IE6/7/8/9
+ * 2. Allow only vertical resizing
+ */;io;.;(i ;@;T;/["textarea;0o;1;2[o;3;2[o;4;2[o;5	;["textarea;60;7" ;i;7@€;i;7@€;i;	[o;';(i ;);*;["overflow;@;	[ ;o;;@;;;"	auto;io;';(i ;);*;["vertical-align;@;	[ ;o;;@;;;"top;io;';(i ;);*;["resize;@;	[ ;o;;@;;;"vertical;i;io;";@;#0;$0;	[ ;["#/* Colors for form validity */;io;.;(i ;@;T;/[" input:valid, textarea:valid;0o;1;2[o;3;2[o;4;2[o;5	;["
+input;60;7" ;io;=
+;["
+valid;>0;;@;7@ˇ;i;7@ˇ;io;3;2[o;4;2[o;5	;["textarea;60;7@ˇ;io;=
+;["
+valid;>0;;@;7@ˇ;i;7@ˇ;i;7@ˇ;i;	[ ;io;.;(i ;@;T;/["$input:invalid, textarea:invalid;0o;1;2[o;3;2[o;4;2[o;5	;["
+input;60;7" ;io;=
+;["invalid;>0;;@;7@;i;7@;io;3;2[o;4;2[o;5	;["textarea;60;7@;io;=
+;["invalid;>0;;@;7@;i;7@;i;7@;i;	[o;';(i ;);*;["background-color;@;	[ ;o;;@;;;"#f0dddd;i;io;";@;#0;$0;	[ ;["´/* =============================================================================
+   Tables
+   ========================================================================== */;io;.;(i ;@;T;/["
+table;0o;1;2[o;3;2[o;4;2[o;5	;["
+table;60;7" ;i;7@?;i;7@?;i;	[o;';(i ;);*;["border-collapse;@;	[ ;o;;@;;;"collapse;io;';(i ;);*;["border-spacing;@;	[ ;o;;@;;;"0;i;io;.;(i ;@;T;/["td;0o;1;2[o;3;2[o;4;2[o;5	;["td;60;7" ;i;7@Y;i;7@Y;i;	[o;';(i ;);*;["vertical-align;@;	[ ;o;;@;;;"top;i;io;";@;#0;$0;	[ ;["©/* ==|== primary styles =====================================================
+   Author:
+   ========================================================================== */;i o;.;(i ;@;T;/["	body;0o;1;2[o;3;2[o;4;2[o;5	;["	body;60;7" ;i$;7@q;i$;7@q;i$;	[o;';(i ;);*;["background;@;	[ ;o; 	;"background;@;!"background;i%;i%o;';(i ;);*;["
+color;@;	[ ;o;;@;;;"	#333;i&o;';(i ;);*;["font-size;@;	[ ;o;;@;;;"
+0.8em;i';i$o;.;(i ;@;T;/["a,
+a:visited;0o;1;2[o;3;2[o;4;2[o;5	;["a;60;7" ;i+;7@í;i+o;3;2["
+o;4;2[o;5	;["a;60;7@í;i+o;=
+;["visited;>0;;@;7@í;i+;7@í;i+;7@í;i+;	[
+o;';(i ;);*;["
+color;@;	[ ;o;;@;;;"	#333;i,o;';(i ;);*;["text-decoration;@;	[ ;o;;@;;;"	none;i-o;';(i ;);*;["border-bottom;@;	[ ;o;;@;;;"1px solid #999;i.o:Sass::Tree::MixinNode;,{ ;"transition;@;&[ ;	[ ;i/o;.;(i ;@;T;/["&:hover;0o;1;2[o;3;2[o;4;2[o:Sass::Selector::Parent;7" ;i0o;=
+;["
+hover;>0;;@;7@¿;i0;7@¿;i0;7@¿;i0;	[o;';(i ;);*;["border-bottom-color;@;	[ ;o;;@;;;"transparent;i1;i0;i+o;.;(i ;@;T;/["div.container;0o;1;2[o;3;2[o;4;2[o;5	;["div;60;7" ;i5o:Sass::Selector::Class;["container;7@◊;i5;7@◊;i5;7@◊;i5;	[
+o;';(i ;);*;["display;@;	[ ;o;;@;;;"
+table;i6o;';(i ;);*;["
+width;@;	[ ;o;;@;;;"	100%;i7o;';(i ;);*;["height;@;	[ ;o;;@;;;"	100%;i8o;';(i ;);*;["table-layout;@;	[ ;o;;@;;;"
+fixed;i9o;.;(i ;@;T;/["div#inner;0o;1;2[o;3;2[o;4;2[o;5	;["div;60;7" ;i;o:Sass::Selector::Id;["
+inner;7@ 	;i;;7@ 	;i;;7@ 	;i;;	[o;';(i ;);*;["display;@;	[ ;o;;@;;;"table-cell;i=o;';(i ;);*;["vertical-align;@;	[ ;o;;@;;;"middle;i>o;.;(i ;@;T;/["div#content;0o;1;2[o;3;2[o;4;2[o;5	;["div;60;7" ;i@o;D;["content;7@	;i@;7@	;i@;7@	;i@;	[	o;';(i ;);*;["height;@;	[ ;o;;@;;;"
+235px;iAo;';(i ;);*;["
+width;@;	[ ;o;;@;;;"
+550px;iBo;';(i ;);*;["margin;@;	[ ;o;	;@;;;[o;;[ ;@;["px;"
+-50px;i…;iCo;	;@;;;"	auto;iCo;;[ ;@;[ ;"0;i ;iC;iC;iCo;';(i ;);*;["position;@;	[ ;o;;@;;;"relative;iD;i@;i;;i5o;.;(i ;@;T;/["div#white;0o;1;2[o;3;2[o;4;2[o;5	;["div;60;7" ;iJo;D;["
+white;7@Q	;iJ;7@Q	;iJ;7@Q	;iJ;	[
+o;';(i ;);*;["position;@;	[ ;o;;@;;;"
+fixed;iKo;';(i ;);*;["
+width;@;	[ ;o;;@;;;"	100%;iLo;';(i ;);*;["height;@;	[ ;o;;@;;;"50%;iMo;';(i ;);*;["background;@;	[ ;o;;@;;;"	#fff;iNo;';(i ;);*;["border-bottom;@;	[ ;o;;@;;;"1px solid #ccc;iO;iJo;.;(i ;@;T;/["h1;0o;1;2[o;3;2[o;4;2[o;5	;["h1;60;7" ;iR;7@Ä	;iR;7@Ä	;iR;	[o;';(i ;);*;["text-align;@;	[ ;o;;@;;;"center;iSo;';(i ;);*;["margin;@;	[ ;o;;@;;;"3em 0 2em;iTo;';(i ;);*;["padding;@;	[ ;o;;@;;;"
+0 1em;iUo;';(i ;);*;["font-size;@;	[ ;o;;@;;;"
+1.4em;iVo;';(i ;);*;["line-height;@;	[ ;o;;@;;;"
+1.6em;iWo;';(i ;);*;["
+color;@;	[ ;o;;@;;;"#2B4287;iXo;.;(i ;@;T;/["a, 
+	a:visited;0o;1;2[o;3;2[o;4;2[o;5	;["a;60;7" ;iZ;7@≤	;iZo;3;2["
+o;4;2[o;5	;["a;60;7@≤	;iZo;=
+;["visited;>0;;@;7@≤	;iZ;7@≤	;iZ;7@≤	;iZ;	[o;';(i ;);*;["
+color;@;	[ ;o;;@;;;"#2B4287;i[;iZ;iRo;.;(i ;@;T;/["div#input;0o;1;2[o;3;2[o;4;2[o;5	;["div;60;7" ;i`o;D;["
+input;7@—	;i`;7@—	;i`;7@—	;i`;	[o;';(i ;);*;["margin;@;	[ ;o;	;@;;;[o;;@<	;@;[ ;"0;i ;iao;;@<	;@;[ ;"0;i ;iao:Sass::Script::Operation
+;@:@operand2o;;@<	;@;[ ;"3;i;ia;;:
+times:@operand1o; 	;"	line;@;!"	line;ia;ia;ia;iao;';(i ;);*;["font-size;@;	[ ;o;;@;;;"
+1.4em;ibo;';(i ;);*;["line-height;@;	[ ;o;;@;;;"
+1.6em;ico;';(i ;);*;["font-weight;@;	[ ;o;;@;;;"	bold;ido;.;(i ;@;T;/["
+input;0o;1;2[o;3;2[o;4;2[o;5	;["
+input;60;7" ;ie;7@
+;ie;7@
+;ie;	[o;';(i ;);*;["font-weight;@;	[ ;o;;@;;;"	bold;ifo;';(i ;);*;["
+width;@;	[ ;o;;@;;;"
+120px;ig;ieo;.;(i ;@;T;/["button;0o;1;2[o;3;2[o;4;2[o;5	;["button;60;7" ;ii;7@!
+;ii;7@!
+;ii;	[o;';(i ;);*;["border;@;	[ ;o;	;@;;;[o;;[ ;@;["px;"1px;i;ijo;	;@;;;"
+solid;ijo;+
+;,{ ;"darken;@;&[o;	;@;{	;i0;i;iG;iá;0;ijo;;[ ;@;["%;"10%;i;ij;ij;ij;ijo;';(i ;);*;["
+color;@;	[ ;o;;@;;;"	#fff;iko;';(i ;);*;["text-shadow;@;	[ ;o;	;@;;;[	o;+
+;,{ ;"darken;@;&[o;	;@;{	;i0;i;iG;iá;0;ilo;;[ ;@;["%;"40%;i-;il;ilo;;[ ;@;["px;"0px;i ;ilo;;[ ;@;["px;"	-1px;i˙;ilo;;[ ;@;["px;"0px;i ;il;il;ilo;';(i ;);*;["text-align;@;	[ ;o;;@;;;"center;imo;A;,{ ;"gradient;@;&[o;+
+;,{ ;"lighten;@;&[o;	;@;{	;i0;i;iG;iá;0;ioo;;[ ;@;["%;"2%;i;io;ioo;+
+;,{ ;"darken;@;&[o;	;@;{	;i0;i;iG;iá;0;ioo;;[ ;@;["%;"2%;i;io;io;	[ ;ioo;';(i ;);*;["padding;@;	[ ;o;;@;;;"0.25em 1em;ipo;';(i ;);*;["margin;@;	[ ;o;;@;;;"0;iqo;';(i ;);*;["margin-top;@;	[ ;o;;[ ;@;["px;"	-2px;i˘;ir;iro;';(i ;);*;["font-size;@;	[ ;o;;@;;;"
+0.9em;iso;';(i ;);*;["text-decoration;@;	[ ;o;;@;;;"	none;ito;A;,{ ;"corners;@;&[o;;[ ;@;["px;"3px;i;iu;	[ ;iu;ii;i`o;.;(i ;@;T;/["div#input;0o;1;2[o;3;2[o;4;2[o;5	;["div;60;7" ;iyo;D;["
+input;7@π
+;iy;7@π
+;iy;7@π
+;iy;	[ ;iyo;.;(i ;@;T;/["p.contribute;0o;1;2[o;3;2[o;4;2[o;5	;["p;60;7" ;i}o;C;["contribute;7@ 
+;i};7@ 
+;i};7@ 
+;i};	[o;';(i ;);*;["display;@;	[ ;o;;@;;;"	none;i~o;';(i ;);*;["margin;@;	[ ;o;;@;;;"1em 0 4em;io;';(i ;);*;["font-size;@;	[ ;o;;@;;;"
+0.9em;iÄo;';(i ;);*;["text-align;@;	[ ;o;;@;;;"center;iÅo;';(i ;);*;["
+color;@;	[ ;o;;@;;;"	#666;iÇo;.;(i ;@;T;/["a;0o;1;2[o;3;2[o;4;2[o;5	;["a;60;7" ;iÉ;7@˘
+;iÉ;7@˘
+;iÉ;	[
+o;';(i ;);*;["
+color;@;	[ ;o;;@;;;"	#666;iÑo;';(i ;);*;["text-decoration;@;	[ ;o;;@;;;"	none;iÖo;';(i ;);*;["border-bottom;@;	[ ;o;;@;;;"1px solid #999;iÜo;A;,{ ;"transition;@;&[ ;	[ ;iáo;.;(i ;@;T;/["&:hover;0o;1;2[o;3;2[o;4;2[o;B;7" ;iào;=
+;["
+hover;>0;;@;7@;ià;7@;ià;7@;ià;	[o;';(i ;);*;["border-bottom-color;@;	[ ;o;;@;;;"transparent;iâ;ià;iÉ;i}o;.;(i ;@;T;/["footer;0o;1;2[o;3;2[o;4;2[o;5	;["footer;60;7" ;ié;7@3;ié;7@3;ié;	[o;';(i ;);*;["font-size;@;	[ ;o;;@;;;"
+0.9em;ièo;';(i ;);*;["text-align;@;	[ ;o;;@;;;"center;iêo;';(i ;);*;["
+color;@;	[ ;o;;@;;;"	#666;iëo;.;(i ;@;T;/["p;0o;1;2[o;3;2[o;4;2[o;5	;["p;60;7" ;iì;7@S;iì;7@S;iì;	[o;';(i ;);*;["display;@;	[ ;o;;@;;;"
+block;iîo;';(i ;);*;["margin;@;	[ ;o;;@;;;"
+2em 0;iï;iìo;.;(i ;@;T;/["p.please-dont-sue;0o;1;2[o;3;2[o;4;2[o;5	;["p;60;7" ;ióo;C;["please-dont-sue;7@m;ió;7@m;ió;7@m;ió;	[	o;';(i ;);*;["
+color;@;	[ ;o;;@;;;"	#999;iòo;';(i ;);*;["margin-top;@;	[ ;o;;@;;;"4em;iôo;';(i ;);*;["line-height;@;	[ ;o;;@;;;"2em;iöo;.;(i ;@;T;/["a;0o;1;2[o;3;2[o;4;2[o;5	;["a;60;7" ;iõ;7@ê;iõ;7@ê;iõ;	[o;';(i ;);*;["
+color;@;	[ ;o;;@;;;"	#999;iú;iõ;ióo;.;(i ;@;T;/["nav#credits;0o;1;2[o;3;2[o;4;2[o;5	;["nav;60;7" ;i†o;D;["credits;7@§;i†;7@§;i†;7@§;i†;	[o;';(i ;);*;["margin;@;	[ ;o;;@;;;"0 0 4em 0;i°o;';(i ;);*;["
+width;@;	[ ;o;;@;;;"
+340px;i¢o;';(i ;);*;["margin;@;	[ ;o;;@;;;"0 auto;i£o;.;(i ;@;T;/["a,
+		div,
+		iframe;0o;1;2[o;3;2[o;4;2[o;5	;["a;60;7" ;i¶;7@«;i¶o;3;2["
+o;4;2[o;5	;["div;60;7@«;i¶;7@«;i¶o;3;2["
+o;4;2[o;5	;["iframe;60;7@«;i¶;7@«;i¶;7@«;i¶;	[o;';(i ;);*;["
+float;@;	[ ;o;;@;;;"	left;ißo;';(i ;);*;["display;@;	[ ;o;;@;;;"inline;i®o;';(i ;);*;["margin;@;	[ ;o;;@;;;"0 0.5em;i©;i¶o;.;(i ;@;T;/["a.made-by;0o;1;2[o;3;2[o;4;2[o;5	;["a;60;7" ;i´o;C;["made-by;7@˜;i´;7@˜;i´;7@˜;i´;	[o;';(i ;);*;["margin-right;@;	[ ;o;;@;;;"1em;i¨;i´o;.;(i ;@;T;/["div.fb-like;0o;1;2[o;3;2[o;4;2[o;5	;["div;60;7" ;iÆo;C;["fb-like;7@;iÆ;7@;iÆ;7@;iÆ;	[o;';(i ;);*;["margin-top;@;	[ ;o;;@;;;"0px;iØ;iÆ;i†;iéo;";@;#0;$0;	[ ;["%/* Contain floats: h5bp.com/q */;i¥o;.;(i ;@;T;/["&.clearfix:before, .clearfix:after;0o;1;2[o;3;2[o;4;2[o;C;["clearfix;7" ;iµo;=
+;["before;>0;;@;7@);iµ;7@);iµo;3;2[o;4;2[o;C;["clearfix;7@);iµo;=
+;["
+after;>0;;@;7@);iµ;7@);iµ;7@);iµ;	[o;';(i ;);*;["content;@;	[ ;o;;@;;;""";iµo;';(i ;);*;["display;@;	[ ;o;;@;;;"
+table;iµ;iµo;.;(i ;@;T;/[".clearfix:after;0o;1;2[o;3;2[o;4;2[o;C;["clearfix;7" ;i∂o;=
+;["
+after;>0;;@;7@P;i∂;7@P;i∂;7@P;i∂;	[o;';(i ;);*;["
+clear;@;	[ ;o;;@;;;"	both;i∂;i∂o;.;(i ;@;T;/[".clearfix;0o;1;2[o;3;2[o;4;2[o;C;["clearfix;7" ;i∑;7@g;i∑;7@g;i∑;	[o;';(i ;);*;["
+*zoom;@;	[ ;o;;@;;;"1;i∑;i∑;i

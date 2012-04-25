@@ -1,0 +1,16 @@
+{
+    "name": "Jolly Good",
+	"icons" : { "48" : "icon.png"},
+	"description" : "Customize 'Likes' on Facebook.com to say something more interesting",
+    "version": "0.1",
+	"background": {
+	    "page": "background.html"
+	},
+	"options_page": "options.html",
+	"content_scripts": [
+	    {
+	      "matches": ["http://www.facebook.com/*", "http://*.facebook.com/*", "http://facebook.com/*", "https://www.facebook.com/*"],
+	      "js": ["js/libs/jquery.js", "js/libs/replaceText.js", "js/jollyGood.js"]
+		}	
+	]
+}
