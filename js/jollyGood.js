@@ -1,6 +1,7 @@
 var jollyGood 	= {};
 
-var elementsToIgnore	= '.commentBody, .hasCaption, .uiStreamMessage';
+// var elementsToIgnore	= '.messageBody, .uiAttachmentDesc, .commentBody, .hasCaption, .uiStreamMessage';
+var elementsToIgnore 	= '';
 
 var adjective 		= 'Jolly Good';
 
