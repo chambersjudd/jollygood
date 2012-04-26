@@ -1,5 +1,7 @@
 var jollyGood 	= {};
 
+var elementsToIgnore	= '.commentBody, .hasCaption, .uiStreamMessage';
+
 var adjective 		= 'Jolly Good';
 
 chrome.extension.sendRequest({method: "getLocalStorage", key: "adjective"}, function(response) {
@@ -18,6 +20,8 @@ chrome.extension.sendRequest({method: "getLocalStorage", key: "adjective"}, func
 		 ------------------------------------------------- */
 		$("*[title*='Like'], *[title*='like']").attr('title', "I think this is " + adjective);
 		
+		$("*[title*='Stop liking this item']").attr('title', "This is not " + adjective);
+		
 		/* Timeline
 		 ------------------------------------------------- */
 		$("input[value='Liked']").attr('value', "I think this is " + adjective);
@@ -25,20 +29,23 @@ chrome.extension.sendRequest({method: "getLocalStorage", key: "adjective"}, func
 		/* Body text
 		 ------------------------------------------------- */
 		// like this
-		$("body *").replaceText( /like this/gi, "think this is " + adjective);
+		$("body *").not(elementsToIgnore).replaceText( /like this/gi, "This is " + adjective);
 		
 		// like this
-		$("body *").replaceText( /Unlike/gi, "No, this isn't " + adjective + "");
+		$("body *").not(elementsToIgnore).replaceText( /Unlike/gi, "This is not " + adjective + "");
 		
 		// likes this
-		$("body *").replaceText( /likes this/gi, "thinks this is " + adjective);
+		$("body *").not(elementsToIgnore).replaceText( /likes this/gi, "thinks this is " + adjective);
 		
 		
 		// liked *****
-		$("body *").replaceText( /liked /gi, "" + adjective + ' that ');
+		$("body *").not(elementsToIgnore).replaceText( /liked /gi, "" + adjective + ' that ');
+		
+		// Someone likes something - TODO
+		// $("body *").not(elementsToIgnore).replaceText( /like/gi,  adjective);
 		
 		// clean up and uncaught likes
-		$("body *").replaceText( /like/gi,  adjective);
+		$("body *").not(elementsToIgnore).replaceText( /like/gi,  adjective);
 		
 	}
 	
@@ -50,4 +57,4 @@ window.setInterval(function() {
 	
   	jollyGood.findLikes();
 
-}, 100);
+}, 250);
