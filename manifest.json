@@ -3,6 +3,7 @@
 	"icons" : { "48" : "icon.png"},
 	"description" : "Customize 'Likes' on Facebook.com to say something more interesting",
     "version": "0.1",
+	"update_url": "http://jollygood.chambersjudd.com/updates.xml",
 	"background": {
 	    "page": "background.html"
 	},
