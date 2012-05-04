@@ -1,6 +1,6 @@
 var jollyGood 	= {};
 
-var elementsToIgnore	= '.messageBody, .uiAttachmentDesc, .commentBody, .hasCaption, .uiStreamMessage';
+var elementsToIgnore	= '.uiAttachmentTitle a, .messageBody, .uiAttachmentDesc, .commentBody, .hasCaption, .uiStreamMessage';
 // var elementsToIgnore 	= '';
 
 var adjective 		= 'Jolly Good';
@@ -26,6 +26,7 @@ chrome.extension.sendRequest({method: "getLocalStorage", key: "adjective"}, func
 		/* Timeline
 		 ------------------------------------------------- */
 		$("input[value='Liked']").attr('value', "I think this is " + adjective);
+		$("input[value='Like']").attr('value', adjective);
 		
 		/* Body text
 		 ------------------------------------------------- */
@@ -36,7 +37,7 @@ chrome.extension.sendRequest({method: "getLocalStorage", key: "adjective"}, func
 		$('.fbEmuContext').not('.jollied').replaceText( /people like/gi, "people think").replaceText('.', '').append(' is ' + adjective).addClass('jollied');
 		
 		// PERSON likes COMPANY
-		$body.replaceText( /[A-Z] likes [A-Z]/gi, "thinks $3 is " + adjective);
+		// $body.replaceText( /[A-Z] likes [A-Z]/gi, "thinks $3 is " + adjective);
 		
 		// like this page
 		$body.replaceText( /like this page/gi, "" + adjective);
