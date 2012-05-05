@@ -1,14 +1,14 @@
 var jollyGood 	= {};
 
 var elementsToIgnore	= '.uiAttachmentTitle a, .messageBody, .uiAttachmentDesc, .commentBody, .hasCaption, .uiStreamMessage';
-// var elementsToIgnore 	= '';
 
 var adjective 		= 'Jolly Good';
+
 
 chrome.extension.sendRequest({method: "getLocalStorage", key: "adjective"}, function(response) {
 	
 	// Set the adjective to use 
-	adjective 		= response.data;
+	adjective 		= (response.data.length > 1) ? response.data : adjective;
 
 });
 
@@ -16,7 +16,7 @@ chrome.extension.sendRequest({method: "getLocalStorage", key: "adjective"}, func
 (function() {
 	
 	this.findLikes		= function() {
-		
+				
 		/* Link titles
 		 ------------------------------------------------- */
 		$("*[title*='Like'], *[title*='like']").attr('title', "I think this is " + adjective);
